@@ -1,0 +1,7 @@
+{
+  "name": "TFG_BEZEROAPP",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
