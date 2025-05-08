@@ -15,6 +15,14 @@ const routes: Routes = [
     path: 'menu',
     loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule)
   },
+  {
+    path: 'erreserba',
+    loadChildren: () => import('./erreserba/erreserba.module').then( m => m.ErreserbaPageModule)
+  },
+  {
+    path: 'zerbitzuak',
+    loadChildren: () => import('./zerbitzuak/zerbitzuak.module').then( m => m.ZerbitzuakPageModule)
+  },
 ];
 
 @NgModule({
