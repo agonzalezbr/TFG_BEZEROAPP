@@ -1,0 +1,75 @@
+/* Fondo global de la página */
+body {
+    --background: #18355E;
+}
+
+ion-toolbar{
+    --background: #18355E;
+    --color: #ffffff;
+}
+
+/* Fondo específico para el ion-content */
+ion-content.fondo {
+    --background: #18355E;
+}
+
+/* Estilo para el contenedor del formulario */
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+}
+
+/* Estilo de la tarjeta */
+ion-card {
+    width: 100%;
+    max-width: 570px;
+    /* Mantener el ancho */
+    max-height: 650px;
+    /* Limitar la altura máxima */
+    padding: 10px 15px;
+    /* Reducido el padding */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    background: #ffffff;
+    overflow-y: auto;
+    /* Para que el contenido que no cabe se desplace */
+}
+
+/* Espaciado entre los elementos del formulario */
+ion-item {
+    margin-bottom: 8px;
+    /* Reducido más el margen */
+}
+
+/* Estilo de los labels */
+ion-label {
+    color: #18355E;
+}
+
+/* Estilo de los botones */
+ion-button {
+    margin-top: 10px;
+    /* Reducido margen entre los botones */
+    --background: #18355E;
+    --color: #ffffff;
+    --border-radius: 8px;
+    /* Bordes redondeados */
+}
+
+/* Ajuste del color de los botones */
+ion-button {
+    --background: #18355E;
+    /* Color de fondo del botón */
+    --color: #ffffff;
+    /* Color del texto */
+    --border-radius: 8px;
+    /* Bordes redondeados */
+}
+
+/* Añadir margen y relleno para mejorar la estética */
+ion-card-content {
+    padding: 0;
+}

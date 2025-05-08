@@ -17,11 +17,11 @@ export class MenuPage implements OnInit {
 
   onHitzorduClick() {
     console.log('Botón "Erreserbatu hitzordua" clickeado');
-    this.router.navigate(['/reservar-hitzordua']);
+    this.router.navigate(['/erreserba']);
   }
 
   onZerbitzuClick() {
     console.log('Botón "Zerbitzuak" clickeado');
-    this.router.navigate(['/servicios']);
+    this.router.navigate(['/zerbitzuak-page']);
   }
 }

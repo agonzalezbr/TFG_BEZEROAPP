@@ -20,8 +20,8 @@ const routes: Routes = [
     loadChildren: () => import('./erreserba/erreserba.module').then( m => m.ErreserbaPageModule)
   },
   {
-    path: 'zerbitzuak',
-    loadChildren: () => import('./zerbitzuak/zerbitzuak.module').then( m => m.ZerbitzuakPageModule)
+    path: 'zerbitzuak-page',
+    loadChildren: () => import('./zerbitzuak-page/zerbitzuak-page.module').then( m => m.ZerbitzuakPagePageModule)
   },
 ];
 
