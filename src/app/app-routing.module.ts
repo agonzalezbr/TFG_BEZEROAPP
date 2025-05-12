@@ -20,9 +20,9 @@ const routes: Routes = [
     loadChildren: () => import('./erreserba/erreserba.module').then( m => m.ErreserbaPageModule)
   },
   {
-    path: 'zerbitzuak-page',
-    loadChildren: () => import('./zerbitzuak-page/zerbitzuak-page.module').then( m => m.ZerbitzuakPagePageModule)
-  },
+    path: 'zerbitzuak-info',
+    loadChildren: () => import('./zerbitzuak-info/zerbitzuak-info.module').then( m => m.ZerbitzuakInfoPageModule)
+  }
 ];
 
 @NgModule({

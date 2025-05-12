@@ -22,6 +22,6 @@ export class MenuPage implements OnInit {
 
   onZerbitzuClick() {
     console.log('Botón "Zerbitzuak" clickeado');
-    this.router.navigate(['/zerbitzuak-page']);
+    this.router.navigate(['/zerbitzuak-info']);
   }
 }
