@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { MenuPageRoutingModule } from './menu-routing.module';
 
 import { MenuPage } from './menu.page';
+import { NireKonponenteakModule } from '../nire-konponenteak/nire-konponenteak.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MenuPageRoutingModule
+    MenuPageRoutingModule,
+    NireKonponenteakModule
   ],
   declarations: [MenuPage]
 })

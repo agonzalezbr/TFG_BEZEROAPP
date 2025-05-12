@@ -3,17 +3,18 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
-
+import { NireKonponenteakModule } from '../nire-konponenteak/nire-konponenteak.module';
 import { HomePageRoutingModule } from './home-routing.module';
 
 
 @NgModule({
+  declarations: [HomePage],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    NireKonponenteakModule,
   ],
-  declarations: [HomePage]
 })
 export class HomePageModule {}

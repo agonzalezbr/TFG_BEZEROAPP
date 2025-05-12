@@ -8,12 +8,15 @@ import { ZerbitzuakInfoPageRoutingModule } from './zerbitzuak-info-routing.modul
 
 import { ZerbitzuakInfoPage } from './zerbitzuak-info.page';
 
+import { NireKonponenteakModule } from '../nire-konponenteak/nire-konponenteak.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ZerbitzuakInfoPageRoutingModule
+    ZerbitzuakInfoPageRoutingModule,
+    NireKonponenteakModule
   ],
   declarations: [ZerbitzuakInfoPage]
 })
