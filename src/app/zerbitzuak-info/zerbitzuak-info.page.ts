@@ -17,7 +17,7 @@ export class ZerbitzuakInfoPage {
     {
       izena: 'Orrazkera',
       prezioa: 15,
-      irudia: 'assets/img/peinado.jpg',
+      irudia: 'assets/img/peinado.png',
     },
     {
       izena: 'Kolorazioa',
