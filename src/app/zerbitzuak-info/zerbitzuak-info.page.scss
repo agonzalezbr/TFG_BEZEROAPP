@@ -28,3 +28,13 @@
     text-align: center;
   }
   
+  ion-toolbar {
+    display: flex;
+    justify-content: center;
+  }
+  
+  ion-title {
+    text-align: center;
+    flex-grow: 1;
+  }
+  
