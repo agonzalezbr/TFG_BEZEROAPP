@@ -36,6 +36,7 @@ ion-item {
 
 ion-label {
     color: #18355E;
+    font-size: 22px;
 }
 
 ion-button {
@@ -53,4 +54,19 @@ ion-button {
 
 ion-card-content {
     padding: 0;
+}
+
+ion-item.custom-spacing ion-label {
+  margin-bottom: 7px;
+}
+
+ion-item.custom-spacing ion-input {
+  margin-top: 7px;
+}
+
+.centered-datetime {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }

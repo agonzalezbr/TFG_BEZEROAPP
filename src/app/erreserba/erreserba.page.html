@@ -2,43 +2,65 @@
   <div class="form-wrapper">
     <ion-card>
       <ion-card-content>
-
         <!-- FORMULARIO -->
-        <ion-item>
-          <ion-label position="floating">Nombre</ion-label>
+        <ion-item class="custom-spacing">
+          <ion-label position="floating">Nombre*</ion-label>
           <ion-input type="text" [(ngModel)]="nombre"></ion-input>
         </ion-item>
 
-        <ion-item>
-          <ion-label position="floating">Apellidos</ion-label>
+        <ion-item class="custom-spacing">
+          <ion-label position="floating">Apellidos*</ion-label>
           <ion-input type="text" [(ngModel)]="apellidos"></ion-input>
         </ion-item>
 
-        <ion-item>
+        <ion-item class="custom-spacing">
           <ion-label position="floating">Email</ion-label>
-          <ion-input type="email" [(ngModel)]="email"></ion-input>
+          <ion-input
+            type="email"
+            [(ngModel)]="email"
+            placeholder="Para recibir la reserva por correo"
+          ></ion-input>
         </ion-item>
 
-        <ion-item>
-          <ion-label>Servicios</ion-label>
-          <ion-select [(ngModel)]="servicios" multiple="true" placeholder="Selecciona los servicios">
-            <ion-select-option *ngFor="let servicio of serviciosDisponibles" [value]="servicio">
+        <ion-item class="custom-spacing">
+          <ion-label>Servicios*</ion-label>
+          <ion-select
+            [(ngModel)]="servicios"
+            multiple="true"
+            placeholder="Selecciona los servicios"
+          >
+            <ion-select-option
+              *ngFor="let servicio of serviciosDisponibles"
+              [value]="servicio"
+            >
               {{ servicio }}
             </ion-select-option>
           </ion-select>
         </ion-item>
-
-        <ion-item>
-          <ion-label position="floating">Fecha</ion-label>
-          <ion-datetime [(ngModel)]="fecha" display-format="MM/DD/YYYY"></ion-datetime>
-        </ion-item>
+          
+        <div class="centered-datetime">
+          <ion-item lines="none"  class="custom-spacing">
+            <ion-label position="floating">Fecha*</ion-label>
+            <ion-datetime
+              [(ngModel)]="fecha"
+              display-format="MM/DD/YYYY"
+            ></ion-datetime>
+          </ion-item>
+        </div>
 
         <!-- BOTONES -->
         <div class="botones">
-          <ion-button expand="block" color="primary" (click)="onSubmit()">Confirmar Reserva</ion-button>
-          <ion-button expand="block" fill="outline" color="medium" (click)="volverAtras()">Volver Atrás</ion-button>
+          <ion-button expand="block" color="primary" (click)="onSubmit()"
+            >Confirmar Reserva</ion-button
+          >
+          <ion-button
+            expand="block"
+            fill="outline"
+            color="medium"
+            (click)="volverAtras()"
+            >Volver Atrás</ion-button
+          >
         </div>
-
       </ion-card-content>
     </ion-card>
   </div>
