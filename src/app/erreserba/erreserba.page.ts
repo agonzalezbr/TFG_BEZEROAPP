@@ -9,6 +9,7 @@ import emailjs from 'emailjs-com';
   styleUrls: ['./erreserba.page.scss'],
   standalone: false
 })
+
 export class ErreserbaPage implements OnInit {
 
   nombre: string = '';
@@ -88,6 +89,7 @@ export class ErreserbaPage implements OnInit {
     console.log('Servicios seleccionados:', this.servicios);
     console.log('Fecha:', this.fecha);
   }
+
   async enviarCorreoEmailJS() {
     const templateParams = {
       to_name: this.nombre,
