@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import emailjs from 'emailjs-com';
-
+import { MenuZerbitzuakService } from '../service/menu.zerbitzuak.service';
 @Component({
   selector: 'app-erreserba',
   templateUrl: './erreserba.page.html',
@@ -19,12 +19,13 @@ export class ErreserbaPage implements OnInit {
   serviciosDisponibles: string[] = [];
   fecha: string = '';
 
-  constructor(private router: Router, private alertController: AlertController) {}
+  constructor(private router: Router, private alertController: AlertController,private MenuZerbitzuakService: MenuZerbitzuakService) {}
 
   ngOnInit(): void {
-    this.serviciosDisponibles = ['Corte de pelo', 'Coloración', 'Peinado'];
+    this.MenuZerbitzuakService.getZerbitzuak().subscribe(servicios => {
+      this.serviciosDisponibles = servicios;
+    });
   }
-
   volverAtras() {
     this.router.navigate(['/menu']);
   }
@@ -88,6 +89,7 @@ export class ErreserbaPage implements OnInit {
     console.log('Email:', this.email);
     console.log('Servicios seleccionados:', this.servicios);
     console.log('Fecha:', this.fecha);
+    this.MenuZerbitzuakService.setHitzordua(this.nombre,this.apellidos,this.email,this.servicios,this.fecha); 
   }
 
   async enviarCorreoEmailJS() {
