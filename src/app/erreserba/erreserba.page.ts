@@ -19,10 +19,10 @@ export class ErreserbaPage implements OnInit {
   serviciosDisponibles: string[] = [];
   fecha: string = '';
 
-  constructor(private router: Router, private alertController: AlertController,private MenuZerbitzuakService: MenuZerbitzuakService) {}
+  constructor(private router: Router, private alertController: AlertController,private menuZerbitzuakService: MenuZerbitzuakService) {}
 
   ngOnInit(): void {
-    this.MenuZerbitzuakService.getZerbitzuak().subscribe(servicios => {
+    this.menuZerbitzuakService.getZerbitzuak().subscribe(servicios => {
       this.serviciosDisponibles = servicios;
     });
   }
@@ -89,7 +89,7 @@ export class ErreserbaPage implements OnInit {
     console.log('Email:', this.email);
     console.log('Servicios seleccionados:', this.servicios);
     console.log('Fecha:', this.fecha);
-    this.MenuZerbitzuakService.setHitzordua(this.nombre,this.apellidos,this.email,this.servicios,this.fecha); 
+    this.menuZerbitzuakService.setHitzordua(this.nombre,this.apellidos,this.email,this.servicios,this.fecha); 
   }
 
   async enviarCorreoEmailJS() {
