@@ -7,23 +7,28 @@ import { Observable } from 'rxjs';
 })
 export class MenuZerbitzuakService {
 
-  private apiUrl = 'http://localhost:8080';
+  private apiUrl = 'http://localhost:8080/api';
 
   constructor(private http: HttpClient) {}
 
-  private izena: string | null = null;
+  private izena: String | null = null;
+  private abizena: String | null = null;
+  private email: String | null = null;
+  private zerbitzuak: any[]=[];
+  private data: String | null = null;
 
   getZerbitzuak(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/zerbitzuak`);
   }
+  
   setHitzordua(izena:string,abizena:string,email:string,zerbitzuak:string[],data:string): Observable<any> {
     const payload = {
-      izena: izena,
-      abizena: abizena,
-      email: email,
-      zerbitzuak: zerbitzuak,
-      data: data
+      "izena": izena,
+      "abizena": abizena,
+      "email": email,
+      "zerbitzuak": zerbitzuak,
+      "data": data
     };
-    return this.http.post<any>(`${this.apiUrl}/hitzorduak`, payload);
+    return this.http.post<any>(`${this.apiUrl}/hitzorduak/erreserba`, payload);
   }
 }

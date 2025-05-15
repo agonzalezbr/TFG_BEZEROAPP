@@ -3,29 +3,34 @@ import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import emailjs from 'emailjs-com';
 import { MenuZerbitzuakService } from '../service/menu.zerbitzuak.service';
+
 @Component({
   selector: 'app-erreserba',
   templateUrl: './erreserba.page.html',
   styleUrls: ['./erreserba.page.scss'],
   standalone: false
 })
-
 export class ErreserbaPage implements OnInit {
 
   nombre: string = '';
   apellidos: string = '';
   email: string = '';
-  servicios: string[] = [];
-  serviciosDisponibles: string[] = [];
+  servicios: any[] = [];
+  serviciosDisponibles: any[] = [];
   fecha: string = '';
 
-  constructor(private router: Router, private alertController: AlertController,private menuZerbitzuakService: MenuZerbitzuakService) {}
+  constructor(
+    private router: Router,
+    private alertController: AlertController,
+    private menuZerbitzuakService: MenuZerbitzuakService
+  ) {}
 
   ngOnInit(): void {
     this.menuZerbitzuakService.getZerbitzuak().subscribe(servicios => {
       this.serviciosDisponibles = servicios;
     });
   }
+
   volverAtras() {
     this.router.navigate(['/menu']);
   }
@@ -57,6 +62,22 @@ export class ErreserbaPage implements OnInit {
       buttons: [{
         text: 'OK',
         handler: async () => {
+          this.menuZerbitzuakService.setHitzordua(
+            this.nombre,
+            this.apellidos,
+            this.email,
+            this.servicios,
+            this.fecha
+          ).subscribe({
+            next: (response) => {
+              console.log('Reserva registrada en el backend', response);
+            },
+            error: (error) => {
+              console.error('Error al registrar la reserva', error);
+            }
+          });
+
+
           if (this.email.trim()) {
             await this.enviarCorreoEmailJS();
 
@@ -89,7 +110,6 @@ export class ErreserbaPage implements OnInit {
     console.log('Email:', this.email);
     console.log('Servicios seleccionados:', this.servicios);
     console.log('Fecha:', this.fecha);
-    this.menuZerbitzuakService.setHitzordua(this.nombre,this.apellidos,this.email,this.servicios,this.fecha); 
   }
 
   async enviarCorreoEmailJS() {
@@ -98,15 +118,15 @@ export class ErreserbaPage implements OnInit {
       to_email: this.email,
       fecha: this.fecha,
       servicios: this.servicios.join(', '),
-      imagen_url: "https://imgur.com/wTBOISZ.png"  
+      imagen_url: "https://imgur.com/wTBOISZ.png"
     };
 
     try {
       await emailjs.send(
-        'service_u5uxxjc',     
-        'template_vhdobss',    
+        'service_u5uxxjc',
+        'template_vhdobss',
         templateParams,
-        '2bj8fpQtswENnuZAd'    
+        '2bj8fpQtswENnuZAd'
       );
       console.log('Correo enviado');
     } catch (error) {
