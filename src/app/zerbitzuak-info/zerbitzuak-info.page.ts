@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { MenuZerbitzuakService } from '../service/menu.zerbitzuak.service';
 
 @Component({
   selector: 'app-zerbitzuak-info',
@@ -8,30 +9,16 @@ import { Router } from '@angular/router';
   standalone: false
 })
 export class ZerbitzuakInfoPage {
-  zerbitzuak = [
-    {
-      izena: 'Ile-mozketa',
-      prezioa: 12,
-      irudia: 'assets/img/corte.jpg',
-    },
-    {
-      izena: 'Orrazkera',
-      prezioa: 15,
-      irudia: 'assets/img/peinado.png',
-    },
-    {
-      izena: 'Kolorazioa',
-      prezioa: 25,
-      irudia: 'assets/img/tinte.jpeg',
-    },
-    {
-      izena: 'Tratamendua',
-      prezioa: 18,
-      irudia: 'assets/img/tratamiento.jpg',
-    },
-  ];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private menuZerbitzuakService: MenuZerbitzuakService) {}
+  
+  serviciosDisponibles: any[] = [];
+
+  ngOnInit(): void {
+    this.menuZerbitzuakService.getZerbitzuak().subscribe(servicios => {
+      this.serviciosDisponibles = servicios;
+    });
+  }
 
   // Método para volver al menú
   goBack() {

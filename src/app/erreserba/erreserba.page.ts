@@ -113,11 +113,12 @@ export class ErreserbaPage implements OnInit {
   }
 
   async enviarCorreoEmailJS() {
+
     const templateParams = {
       to_name: this.nombre,
       to_email: this.email,
       fecha: this.fecha,
-      servicios: this.servicios.join(', '),
+      servicios: this.servicios.map(s => s.izena).join(', '),
       imagen_url: "https://imgur.com/wTBOISZ.png"
     };
 

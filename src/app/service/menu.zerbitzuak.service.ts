@@ -21,13 +21,13 @@ export class MenuZerbitzuakService {
     return this.http.get<any[]>(`${this.apiUrl}/zerbitzuak`);
   }
   
-  setHitzordua(izena:string,abizena:string,email:string,zerbitzuak:string[],data:string): Observable<any> {
+  setHitzordua(izena:string,abizena:string,email:string,zerbitzuak:any[],data:string): Observable<any> {
     const payload = {
-      "izena": izena,
-      "abizena": abizena,
+      "izena": izena + ' ' + abizena,
       "email": email,
-      "zerbitzuak": zerbitzuak,
-      "data": data
+      "deskribapena": zerbitzuak.map(s => s.izena).join(', '),
+      "data": data,
+      "hasieraOrdua": data
     };
     return this.http.post<any>(`${this.apiUrl}/hitzorduak/erreserba`, payload);
   }

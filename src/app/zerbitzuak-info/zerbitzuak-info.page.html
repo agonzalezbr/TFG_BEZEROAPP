@@ -10,14 +10,13 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid class="center-grid">
+  <ion-grid>
     <ion-row justify-content-center>
-      <ion-col size="auto" *ngFor="let item of zerbitzuak">
+      <ion-col size="auto" *ngFor="let item of serviciosDisponibles">
         <ion-card class="custom-card">
-          <img [src]="item.irudia" alt="{{ item.izena }}" />
           <ion-card-content class="ion-text-center">
             <h3>{{ item.izena }}</h3>
-            <p>{{ item.prezioa | currency:'EUR':'symbol' }}</p>
+            <p>{{ item.kanpokoPrezioa | currency:'EUR':'symbol' }}</p>
           </ion-card-content>
         </ion-card>
       </ion-col>
